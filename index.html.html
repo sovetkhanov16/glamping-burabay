@@ -1,0 +1,317 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco Glamping Burabay</title>
+    <style>
+        :root {
+            --forest-green: #2d5a27;
+            --moss-green: #4a7c59;
+            --wood-brown: #8b5a2b;
+            --light-beige: #f5f2eb;
+            --dark-text: #2c3531;
+            --white: #ffffff;
+        }
+
+        * {
+            box-sizing: border-box;
+            scroll-behavior: smooth;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            color: var(--dark-text);
+            line-height: 1.6;
+            
+            /* Яркий летний лес на фоне */
+            background: linear-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.4)), 
+                        url('https://images.unsplash.com/photo-1441974231531-c6227db76b6e?auto=format&fit=crop&w=1920&q=80');
+            background-attachment: fixed;
+            background-size: cover;
+            background-position: center;
+        }
+
+        header {
+            /* Шапка с шишками и прозрачным зеленым слоем */
+            background: linear-gradient(rgba(45, 90, 39, 0.85), rgba(45, 90, 39, 0.85)), 
+                        url('https://images.unsplash.com/photo-1549472304-44ed1d50b4ec?auto=format&fit=crop&w=1000&q=80');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            text-align: center;
+            padding: 40px 15px;
+        }
+
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+        }
+
+        header p {
+            margin: 10px 0 0;
+            font-size: 1.1em;
+            color: #e2f0e9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 25px 15px;
+        }
+
+        h2 {
+            color: var(--forest-green);
+            text-align: center;
+            font-size: 1.8em;
+            margin-bottom: 30px;
+            position: relative;
+        }
+
+        h2::after {
+            content: '';
+            display: block;
+            width: 50px;
+            height: 3px;
+            background-color: var(--wood-brown);
+            margin: 8px auto 0;
+        }
+
+        .catalog {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .card {
+            background: rgba(255, 255, 255, 0.96);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+            border: 1px solid #e2ded6;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            max-width: 100%;
+            margin: 0 auto;
+            width: 100%;
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+        }
+
+        .card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 12px 25px rgba(0,0,0,0.15);
+        }
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card-title {
+            font-size: 1.5em;
+            margin: 0 0 12px;
+            color: var(--wood-brown);
+            text-align: center;
+        }
+
+        .description-link {
+            display: block;
+            margin: 15px 0;
+            color: var(--forest-green);
+            text-decoration: underline;
+            font-weight: 500;
+            text-align: center;
+            word-break: break-word;
+            line-height: 1.4;
+            font-size: 0.95em;
+        }
+
+        .description-link:hover {
+            color: var(--wood-brown);
+        }
+
+        .price {
+            font-weight: bold;
+            color: var(--forest-green);
+            font-size: 1.25em;
+            margin: 15px 0;
+            border-top: 1px dashed #e2ded6;
+            padding-top: 12px;
+            text-align: center;
+        }
+
+        .btn-whatsapp {
+            display: block;
+            text-align: center;
+            background-color: #25D366;
+            color: var(--white);
+            text-decoration: none;
+            padding: 12px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1em;
+            transition: background-color 0.3s, transform 0.1s;
+        }
+
+        .btn-whatsapp:hover {
+            background-color: #128C7E;
+        }
+
+        .btn-whatsapp:active {
+            transform: scale(0.98);
+        }
+
+        .contact-form-section {
+            background-color: rgba(255, 255, 255, 0.94);
+            backdrop-filter: blur(5px);
+            -webkit-backdrop-filter: blur(5px);
+            padding: 30px 15px;
+            border-radius: 12px;
+            margin-top: 40px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.08);
+            border: 1px solid #e2ded6;
+        }
+
+        .contact-form {
+            max-width: 100%;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .contact-form input, .contact-form textarea {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #c4cbd7;
+            border-radius: 6px;
+            font-size: 1em;
+            background: rgba(255, 255, 255, 0.95);
+            appearance: none;
+            -webkit-appearance: none;
+        }
+
+        .contact-form button {
+            background-color: var(--forest-green);
+            color: var(--white);
+            border: none;
+            padding: 14px;
+            border-radius: 6px;
+            font-size: 1em;
+            font-weight: bold;
+            cursor: pointer;
+            transition: background-color 0.3s;
+            appearance: none;
+            -webkit-appearance: none;
+        }
+
+        .contact-form button:hover {
+            background-color: var(--moss-green);
+        }
+
+        footer {
+            text-align: center;
+            padding: 25px 15px;
+            background: var(--forest-green);
+            color: var(--white);
+            margin-top: 40px;
+            font-size: 0.9em;
+        }
+
+        @media (max-width: 480px) {
+            header h1 {
+                font-size: 1.6em;
+            }
+            h2 {
+                font-size: 1.5em;
+            }
+            .card-title {
+                font-size: 1.35em;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Eco Glamping Burabay</h1>
+        <p>Отдых для души и разума, вдали от суеты в сердце Борового</p>
+    </header>
+
+    <div class="container">
+        <h2>Наш Эко-Глэмпинг</h2>
+        
+        <div class="catalog">
+            
+            <!-- Карточка 1: Обзор наших домов -->
+            <div class="card">
+                <div class="card-content">
+                    <h3 class="card-title">Обзор наших домов</h3>
+                    
+                    <a href="https://www.instagram.com/s/aGlnaGxpZ2h0OjE4MjI2NTM4MjM2MjYyMDU4?story_media_id=3886058440334525922&igsh=djhsa2N3eWtzcmxz" target="_blank" class="description-link">
+                        Обзор домов на первой береговой линии и на домики с видом на лес
+                    </a>
+                    
+                    <div class="price">от 45 000 ₸ до 85 000 ₸ / сутки</div>
+                    <!-- Новый номер WhatsApp -->
+                    <a href="https://wa.me/77777770626?text=Здравствуйте!+Хочу+забронировать+домик" target="_blank" class="btn-whatsapp">Забронировать через WhatsApp</a>
+                </div>
+            </div>
+
+            <!-- Карточка 2: Сафари тент -->
+            <div class="card">
+                <div class="card-content">
+                    <h3 class="card-title">Сафари тент</h3>
+                    
+                    <a href="https://www.instagram.com/reel/DXhTR8hBkRr/?igsh=OWVkZzRjandreXFv" target="_blank" class="description-link">
+                        Обзор на сафари тент с видом на лес
+                    </a>
+                    
+                    <div class="price">от 45 000 ₸ до 55 000 ₸ / сутки</div>
+                    <!-- Новый номер WhatsApp -->
+                    <a href="https://wa.me/77777770626?text=Здравствуйте!+Меня+интересует+Сафари+тент" target="_blank" class="btn-whatsapp">Забронировать через WhatsApp</a>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Форма обратной связи -->
+        <div class="contact-form-section">
+            <h2>Остались вопросы?</h2>
+            <form class="contact-form" onsubmit="sendToFormWhatsApp(event)">
+                <input type="text" id="client-name" placeholder="Ваше имя" required>
+                <input type="tel" id="client-phone" placeholder="Ваш телефон" required>
+                <textarea id="client-message" rows="4" placeholder="Какой домик или даты вас интересуют?" required></textarea>
+                <button type="submit">Задать вопрос в WhatsApp</button>
+            </form>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Eco Glamping Burabay. Все права защищены.</p>
+    </footer>
+
+    <script>
+        function sendToFormWhatsApp(event) {
+            event.preventDefault();
+            let name = document.getElementById('client-name').value;
+            let phone = document.getElementById('client-phone').value;
+            let message = document.getElementById('client-message').value;
+            
+            let text = `Здравствуйте! Меня зовут ${name}. Телефон: ${phone}. Вопрос: ${message}`;
+            let encodedText = encodeURIComponent(text);
+            // Новый номер WhatsApp в скрипте формы
+            window.open(`https://wa.me/77777770626?text=${encodedText}`, '_blank');
+        }
+    </script>
+</body>
+</html>
